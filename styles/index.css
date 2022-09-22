@@ -1,0 +1,184 @@
+:root {
+  --color-main-light: #f5efe6;
+  --color-main-shade: #e8dfca;
+  --color-accent-light: #aebdca;
+  --color-accent-shade: #7895b2;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--color-accent-shade);
+}
+header img {
+  height: 4rem;
+}
+header pre {
+  text-align: center;
+  font-size: 3em;
+  color: white;
+}
+header nav {
+  padding-right: 2rem;
+}
+header nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 2rem;
+}
+header nav ul li {
+  padding: 0;
+  font-size: 1.5em;
+}
+header nav ul li a {
+  color: var(--color-accent-light);
+  text-decoration: none;
+}
+header nav ul li a:hover {
+  transition: color 0.2s;
+  color: white;
+}
+
+.hero {
+  width: 100%;
+  height: min(75vh, 40rem);
+  position: relative;
+  display: grid;
+  background-color: darkgrey;
+  place-items: center;
+  font-size: 2em;
+  background-image: url(../assets/crowd.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero > * {
+  grid-area: 1/-1;
+}
+.hero .hero-text {
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px black;
+  z-index: 1;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.45);
+  inset: 0;
+}
+
+.max-width {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+.padding-top > * + * {
+  margin-top: 1em;
+}
+
+main {
+  background-color: var(--color-main-light);
+}
+
+section {
+  padding-block: 1rem;
+}
+section > * + * {
+  margin-top: 1em;
+}
+section h1 {
+  text-align: center;
+}
+
+.image-cut-in {
+  background-color: var(--color-accent-light);
+  padding: 0;
+}
+.image-cut-in article {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.image-cut-in article .left {
+  grid-column: 1/2;
+}
+.image-cut-in article .right {
+  grid-column: 2/3;
+}
+.image-cut-in article .cut-in-text {
+  padding: 1rem;
+  text-align: center;
+}
+.image-cut-in article .cut-in-image {
+  position: relative;
+  height: 20rem;
+}
+.image-cut-in article .cut-in-image.right {
+  -webkit-clip-path: polygon(20% 0, 100% 0%, 100% 100%, 10% 100%);
+          clip-path: polygon(20% 0, 100% 0%, 100% 100%, 10% 100%);
+}
+.image-cut-in article .cut-in-image.left {
+  -webkit-clip-path: polygon(0 0, 80% 0, 90% 100%, 0 100%);
+          clip-path: polygon(0 0, 80% 0, 90% 100%, 0 100%);
+}
+.image-cut-in article .cut-in-image img {
+  height: 20rem;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.image-cut-in article .cut-in-image::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.cards article {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--color-accent-light);
+  width: 40ch;
+  height: 40ch;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.cards article .article-image {
+  height: 80%;
+  overflow: hidden;
+}
+.cards article .article-image img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cards article .article-text {
+  margin-block: auto;
+  padding-inline: 1rem;
+}
+.cards article:hover {
+  background-color: var(--color-accent-shade);
+  transform: translate(10px 10px);
+}
