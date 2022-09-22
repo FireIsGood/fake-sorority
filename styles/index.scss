@@ -113,7 +113,7 @@ main {
 }
 
 section {
-  padding-block: 1rem;
+  padding-block: 2rem;
 
   > * + * {
     margin-top: 1em;
@@ -200,5 +200,14 @@ section {
       background-color: var(--color-accent-shade);
       transform: translate(10px 10px);
     }
+  }
+}
+
+.center-image {
+  height: 400px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
   }
 }

@@ -97,7 +97,7 @@ main {
 }
 
 section {
-  padding-block: 1rem;
+  padding-block: 2rem;
 }
 section > * + * {
   margin-top: 1em;
@@ -181,4 +181,12 @@ section h1 {
 .cards article:hover {
   background-color: var(--color-accent-shade);
   transform: translate(10px 10px);
+}
+
+.center-image {
+  height: 400px;
+  overflow: hidden;
+}
+.center-image img {
+  width: 100%;
 }
