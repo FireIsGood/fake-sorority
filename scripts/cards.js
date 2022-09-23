@@ -1,7 +1,7 @@
 const cards = document.getElementsByClassName("card");
-var is_touch_device = "ontouchstart" in document.documentElement;
+var isTouch = "ontouchstart" in document.documentElement;
 
-if (is_touch_device) {
+if (isTouch) {
   for (let card of cards) {
     console.log(card);
     card.addEventListener("contextmenu", (e) => {

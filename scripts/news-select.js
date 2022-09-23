@@ -1,7 +1,7 @@
 const articles = document.getElementsByClassName("story");
-var is_touch_device = "ontouchstart" in document.documentElement;
+var isTouch = "ontouchstart" in document.documentElement;
 
-if (is_touch_device) {
+if (isTouch) {
   for (let article of articles) {
     console.log(article);
     article.addEventListener("contextmenu", (e) => {
