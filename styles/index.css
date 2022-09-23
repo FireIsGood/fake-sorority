@@ -171,6 +171,7 @@ footer {
   gap: 1rem;
 }
 .news-cards article {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-accent-light);
@@ -193,9 +194,21 @@ footer {
   margin-block: auto;
   padding-inline: 1rem;
 }
-.news-cards article:hover {
+.news-cards article:where(:hover, :active, .mobile-tapped) {
   background-color: var(--color-accent-shade);
   transform: translate(10px 10px);
+  --bar-slide: calc(10ch + 10px);
+}
+.news-cards article::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: -10px;
+  width: var(--bar-slide, 0);
+  height: 1.5rem;
+  background-color: var(--color-accent-shade);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3333333333);
+  transition: width 0.2s;
 }
 
 .center-image {

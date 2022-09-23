@@ -194,6 +194,7 @@ footer {
   gap: 1rem;
 
   article {
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
     background-color: var(--color-accent-light);
@@ -218,9 +219,22 @@ footer {
       padding-inline: 1rem;
     }
 
-    &:hover {
+    &:where(:hover, :active, .mobile-tapped) {
       background-color: var(--color-accent-shade);
       transform: translate(10px 10px);
+      --bar-slide: calc(10ch + 10px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 25%;
+      left: -10px;
+      width: var(--bar-slide, 0);
+      height: 1.5rem;
+      background-color: var(--color-accent-shade);
+      box-shadow: 4px 4px 4px #0005;
+      transition: width 0.2s;
     }
   }
 }
