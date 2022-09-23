@@ -3,6 +3,8 @@
   --color-main-shade: #e8dfca;
   --color-accent-light: #aebdca;
   --color-accent-shade: #7895b2;
+  --color-link: #7c6543;
+  --color-link-hover: #443827;
 }
 
 body {
@@ -13,6 +15,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+main {
+  background-color: var(--color-main-light);
+  min-height: 100vh;
 }
 
 header {
@@ -54,6 +61,41 @@ header nav ul li a:hover {
   color: white;
 }
 
+section {
+  padding-block: 2rem;
+}
+section > * + * {
+  margin-top: 1em;
+}
+section h1 {
+  text-align: center;
+}
+
+footer {
+  background-color: var(--color-main-shade);
+  text-align: center;
+  padding: 1rem;
+  min-height: 6rem;
+}
+footer a {
+  color: var(--color-link);
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-link) 0 0);
+  background-repeat: no-repeat;
+  background-size: var(--size, 0%) 100%;
+  transition: color 0.2s, background-size 0.2s;
+  cursor: pointer;
+}
+footer a:hover {
+  --size: 100%;
+  color: white;
+}
+
+.max-width {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
 .hero {
   width: 100%;
   height: min(75vh, 40rem);
@@ -83,27 +125,8 @@ header nav ul li a:hover {
   inset: 0;
 }
 
-.max-width {
-  max-width: 50rem;
-  margin-inline: auto;
-}
-
 .padding-top > * + * {
   margin-top: 1em;
-}
-
-main {
-  background-color: var(--color-main-light);
-}
-
-section {
-  padding-block: 2rem;
-}
-section > * + * {
-  margin-top: 1em;
-}
-section h1 {
-  text-align: center;
 }
 
 .image-cut-in {

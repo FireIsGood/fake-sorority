@@ -3,7 +3,12 @@
   --color-main-shade: #e8dfca;
   --color-accent-light: #aebdca;
   --color-accent-shade: #7895b2;
+
+  --color-link: #7c6543;
+  --color-link-hover: #443827;
 }
+
+// Main Styles
 
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -14,6 +19,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+main {
+  background-color: var(--color-main-light);
+  min-height: 100vh;
 }
 
 header {
@@ -61,6 +71,43 @@ header {
   }
 }
 
+section {
+  padding-block: 2rem;
+
+  > * + * {
+    margin-top: 1em;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+footer {
+  background-color: var(--color-main-shade);
+  text-align: center;
+  padding: 1rem;
+  min-height: 6rem;
+
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-link) 0 0);
+    background-repeat: no-repeat;
+    // background-position: 100% 100%;
+    background-size: var(--size, 0%) 100%;
+    transition: color 0.2s, background-size 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      --size: 100%;
+      color: white;
+    }
+  }
+}
+
+// Mixins
+
 @mixin darken-overlay($darken-amount: 0.45) {
   &::before {
     content: "";
@@ -69,6 +116,13 @@ header {
     inset: 0;
   }
 }
+
+.max-width {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+// Specific Styles
 
 .hero {
   width: 100%;
@@ -97,30 +151,9 @@ header {
   @include darken-overlay();
 }
 
-.max-width {
-  max-width: 50rem;
-  margin-inline: auto;
-}
-
 .padding-top {
   > * + * {
     margin-top: 1em;
-  }
-}
-
-main {
-  background-color: var(--color-main-light);
-}
-
-section {
-  padding-block: 2rem;
-
-  > * + * {
-    margin-top: 1em;
-  }
-
-  h1 {
-    text-align: center;
   }
 }
 
