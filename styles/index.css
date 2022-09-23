@@ -215,6 +215,10 @@ footer a:hover {
   width: 100%;
 }
 
+.card-container {
+  overflow-x: scroll;
+}
+
 .card-list {
   display: flex;
   flex-flow: row nowrap;
@@ -237,10 +241,10 @@ footer a:hover {
   transition: transform 0.1s ease-in-out;
   transform-origin: bottom left;
 }
-.card-list .card:where(:hover, :active) {
+.card-list .card:where(:hover, :active, .mobile-tapped) {
   transform: translateY(-5px) rotate(-2deg);
 }
-.card-list .card:where(:hover, :active) ~ * {
+.card-list .card:where(:hover, :active, .mobile-tapped) ~ * {
   transform: translateX(8rem);
 }
 .card-list .card:not(:first-of-type) {

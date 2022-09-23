@@ -248,6 +248,10 @@ footer {
 
 $card-offset: 8rem;
 
+.card-container {
+  overflow-x: scroll;
+}
+
 .card-list {
   display: flex;
   flex-flow: row nowrap;
@@ -268,7 +272,7 @@ $card-offset: 8rem;
     transition: transform 0.1s ease-in-out;
     transform-origin: bottom left;
 
-    &:where(:hover, :active) {
+    &:where(:hover, :active, .mobile-tapped) {
       transform: translateY(-5px) rotate(-2deg);
 
       & ~ * {
