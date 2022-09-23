@@ -4,7 +4,7 @@
   --color-accent-light: #aebdca;
   --color-accent-shade: #7895b2;
 
-  --color-link: #7c6543;
+  --color-link: #d68100;
   --color-link-hover: #443827;
 }
 
@@ -19,6 +19,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+ul li {
+  list-style-position: inside;
 }
 
 main {
@@ -89,22 +93,6 @@ footer {
   text-align: center;
   padding: 1rem;
   min-height: 6rem;
-
-  a {
-    color: var(--color-link);
-    text-decoration: none;
-    background-image: linear-gradient(var(--color-link) 0 0);
-    background-repeat: no-repeat;
-    // background-position: 100% 100%;
-    background-size: var(--size, 0%) 100%;
-    transition: color 0.2s, background-size 0.2s;
-    cursor: pointer;
-
-    &:hover {
-      --size: 100%;
-      color: white;
-    }
-  }
 }
 
 // Mixins
@@ -238,12 +226,36 @@ footer {
 }
 
 .center-image {
-  height: 400px;
   overflow: hidden;
 
   img {
     width: 100%;
   }
+}
+
+.fake-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  background-image: linear-gradient(var(--color-link) 0 0);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 100% var(--size, 0%);
+  transition: color 0.2s, background-size 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+    --size: 100%;
+  }
+}
+
+.glitch {
+  font-family: "Courier New", Courier, monospace;
+  background-color: black;
+  color: white;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 $card-offset: 8rem;
