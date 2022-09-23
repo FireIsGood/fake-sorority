@@ -173,13 +173,13 @@ footer a:hover {
   inset: 0;
 }
 
-.cards {
+.news-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
-.cards article {
+.news-cards article {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-accent-light);
@@ -189,20 +189,20 @@ footer a:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.cards article .article-image {
+.news-cards article .article-image {
   height: 80%;
   overflow: hidden;
 }
-.cards article .article-image img {
+.news-cards article .article-image img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.cards article .article-text {
+.news-cards article .article-text {
   margin-block: auto;
   padding-inline: 1rem;
 }
-.cards article:hover {
+.news-cards article:hover {
   background-color: var(--color-accent-shade);
   transform: translate(10px 10px);
 }
@@ -213,4 +213,81 @@ footer a:hover {
 }
 .center-image img {
   width: 100%;
+}
+
+.card-list {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-inline: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.card-list .card {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  min-width: 320px;
+  width: 320px;
+  height: 200px;
+  padding: 0.5rem;
+  margin: 0;
+  background-color: #f3f1ed;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.3333333333);
+  font-size: 0.8em;
+  transition: transform 0.1s ease-in-out;
+  transform-origin: bottom left;
+}
+.card-list .card:where(:hover, :active) {
+  transform: translateY(-5px) rotate(-2deg);
+}
+.card-list .card:where(:hover, :active) ~ * {
+  transform: translateX(8rem);
+}
+.card-list .card:not(:first-of-type) {
+  margin-left: -7.5rem;
+}
+.card-list .card .phone {
+  grid-area: 1/1;
+  text-align: left;
+}
+.card-list .card .company {
+  grid-area: 1/1;
+  text-align: right;
+}
+.card-list .card .company span {
+  font-size: 0.68em;
+}
+.card-list .card .center {
+  grid-area: 2/1;
+  align-self: center;
+  text-align: center;
+}
+.card-list .card .center .name {
+  font-size: 1.4em;
+}
+.card-list .card .bottom {
+  grid-area: 3/1;
+  align-self: end;
+  text-align: center;
+}
+.card-list .card .bottom span {
+  font-size: 0.8em;
+}
+.card-list .card strong {
+  font-weight: 400;
+}
+.card-list .card:nth-child(1) {
+  font-family: "Fira Sans", sans-serif;
+}
+.card-list .card:nth-child(2) {
+  font-family: "Kanit", sans-serif;
+}
+.card-list .card:nth-child(3) {
+  font-family: "Nunito", sans-serif;
+}
+.card-list .card:nth-child(4) {
+  font-family: "Poppins", sans-serif;
+}
+.card-list .card:nth-child(5) {
+  font-family: "Raleway", sans-serif;
 }
