@@ -83,6 +83,11 @@ footer {
   min-height: 6rem;
 }
 
+hr {
+  border: none;
+  border-top: 2px dashed rgba(0, 0, 0, 0.1333333333);
+}
+
 .max-width {
   max-width: 50rem;
   margin-inline: auto;
@@ -351,6 +356,22 @@ footer {
 }
 .card-list .card:nth-child(5) {
   font-family: "Raleway", sans-serif;
+}
+
+.article-slide > article {
+  padding-block: 1rem;
+}
+.article-slide > article > * + * {
+  padding-top: 1em;
+}
+.article-slide .js-active {
+  opacity: 0;
+  transform: translateY(100px);
+}
+.article-slide .js-active.show {
+  transform: translateY(0);
+  transition: all 1.5s;
+  opacity: 1;
 }
 
 @media screen and (min-width: 600px) {

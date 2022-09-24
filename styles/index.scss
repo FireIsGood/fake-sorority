@@ -95,6 +95,11 @@ footer {
   min-height: 6rem;
 }
 
+hr {
+  border: none;
+  border-top: 2px dashed #0002;
+}
+
 // Mixins
 
 @mixin darken-overlay($darken-amount: 0.45) {
@@ -382,6 +387,26 @@ $card-offset: 8rem;
     }
     &:nth-child(5) {
       font-family: "Raleway", sans-serif;
+    }
+  }
+}
+
+.article-slide {
+  > article {
+    padding-block: 1rem;
+
+    > * + * {
+      padding-top: 1em;
+    }
+  }
+
+  .js-active {
+    opacity: 0;
+    transform: translateY(100px);
+    &.show {
+      transform: translateY(0);
+      transition: all 1.5s;
+      opacity: 1;
     }
   }
 }
