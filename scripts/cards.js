@@ -3,7 +3,6 @@ var isTouch = "ontouchstart" in document.documentElement;
 
 if (isTouch) {
   for (let card of cards) {
-    console.log(card);
     card.addEventListener("contextmenu", (e) => {
       e.preventDefault();
     });
@@ -15,5 +14,12 @@ if (isTouch) {
         otherCard.classList.remove("mobile-tapped");
       }
     });
+  }
+  window.addEventListener("click", (e) => removeFocus());
+}
+
+function removeFocus() {
+  for (let card of cards) {
+    card.classList.remove("mobile-tapped");
   }
 }
