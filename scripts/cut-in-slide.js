@@ -10,7 +10,6 @@ const options = {
 
 const observer = new IntersectionObserver(function (entries, observer) {
   entries.forEach((entry) => {
-    console.log(entry);
     entry.isIntersecting ? entry.target.classList.add("show") : null;
   });
 }, options);

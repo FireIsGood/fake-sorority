@@ -3,7 +3,6 @@ var isTouch = "ontouchstart" in document.documentElement;
 
 if (isTouch) {
   for (let article of articles) {
-    console.log(article);
     article.addEventListener("contextmenu", (e) => {
       e.preventDefault();
     });
@@ -15,5 +14,12 @@ if (isTouch) {
         otherArticle.classList.remove("mobile-tapped");
       }
     });
+  }
+  window.addEventListener("click", (e) => removeFocus());
+}
+
+function removeFocus() {
+  for (let article of articles) {
+    article.classList.remove("mobile-tapped");
   }
 }

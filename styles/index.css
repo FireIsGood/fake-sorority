@@ -24,6 +24,8 @@ ul li {
 main {
   background-color: var(--color-main-light);
   min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 1rem;
 }
 
 header {
@@ -59,10 +61,16 @@ header nav ul li {
 header nav ul li a {
   color: var(--color-accent-light);
   text-decoration: none;
+  background-image: linear-gradient(white 0 0);
+  background-repeat: no-repeat;
+  background-size: var(--hover-grow, 0%) 0.07em;
+  background-position: calc(100% - var(--hover-grow, 0%)) 100%;
+  transition: background 0.2s, background-position 0s;
 }
 header nav ul li a:hover {
-  transition: color 0.2s;
+  transition: background 0.2s, background-position 0s, color 0.2s;
   color: white;
+  --hover-grow: 100%;
 }
 
 section {
@@ -209,12 +217,22 @@ hr {
 }
 
 .news-cards {
+  background: linear-gradient(#091f2c, #1c393f);
+  background: url(../assets/space.jpg);
+  background-attachment: fixed;
+  background-position: center;
+}
+.news-cards > h1 {
+  color: white;
+  text-shadow: 0 0 8px black;
+}
+.news-cards .news-cards-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
-.news-cards article {
+.news-cards .news-cards-inner article {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
@@ -225,25 +243,26 @@ hr {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.news-cards article .article-image {
+.news-cards .news-cards-inner article .article-image {
   height: 80%;
   overflow: hidden;
 }
-.news-cards article .article-image img {
+.news-cards .news-cards-inner article .article-image img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.news-cards article .article-text {
+.news-cards .news-cards-inner article .article-text {
+  color: black;
   margin-block: auto;
   padding-inline: 1rem;
 }
-.news-cards article:where(:hover, :active, .mobile-tapped) {
+.news-cards .news-cards-inner article:where(:hover, :active, .mobile-tapped) {
   background-color: var(--color-accent-shade);
   transform: translate(10px 10px);
   --bar-slide: calc(10ch + 10px);
 }
-.news-cards article::after {
+.news-cards .news-cards-inner article::after {
   content: "";
   position: absolute;
   bottom: 25%;
@@ -260,6 +279,10 @@ hr {
 }
 .center-image img {
   width: 100%;
+}
+.center-image.banana {
+  max-width: min(50%, 20rem);
+  margin-inline: auto;
 }
 
 .fake-link {
