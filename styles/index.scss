@@ -207,6 +207,22 @@ hr {
       }
       @include darken-overlay(0.2);
     }
+    .js-active {
+      opacity: 0;
+
+      &.left {
+        transform: translateX(-100px);
+      }
+      &.right {
+        transform: translateX(100px);
+      }
+
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 1.5s;
+      }
+    }
   }
 }
 
@@ -392,6 +408,8 @@ $card-offset: 8rem;
 }
 
 .article-slide {
+  overflow: hidden;
+
   > article {
     padding-block: 1rem;
 

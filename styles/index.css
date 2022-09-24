@@ -193,6 +193,20 @@ hr {
   background-color: rgba(0, 0, 0, 0.2);
   inset: 0;
 }
+.image-cut-in article .js-active {
+  opacity: 0;
+}
+.image-cut-in article .js-active.left {
+  transform: translateX(-100px);
+}
+.image-cut-in article .js-active.right {
+  transform: translateX(100px);
+}
+.image-cut-in article .js-active.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1.5s;
+}
 
 .news-cards {
   display: flex;
@@ -358,6 +372,9 @@ hr {
   font-family: "Raleway", sans-serif;
 }
 
+.article-slide {
+  overflow: hidden;
+}
 .article-slide > article {
   padding-block: 1rem;
 }
