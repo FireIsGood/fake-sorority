@@ -100,6 +100,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 .hero > * {
   grid-area: 1/-1;
@@ -120,6 +121,10 @@ footer {
 
 .padding-top > * + * {
   margin-top: 1em;
+}
+
+#guy {
+  display: none;
 }
 
 .image-cut-in {
@@ -238,11 +243,11 @@ footer {
 }
 
 .glitch {
+  display: inline-block;
   font-family: "Courier New", Courier, monospace;
   background-color: black;
   color: white;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  padding-inline: 3px;
 }
 
 .card-container {
@@ -324,4 +329,24 @@ footer {
 }
 .card-list .card:nth-child(5) {
   font-family: "Raleway", sans-serif;
+}
+
+@media screen and (min-width: 600px) {
+  #guy {
+    display: block;
+    position: absolute;
+    bottom: calc(-100px + var(--lift, 0px));
+    right: calc(50% + 150px);
+    transition: bottom 0.2s ease-out;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+  #guy:hover {
+    --lift: -10px;
+  }
+  #guy .eyes {
+    position: absolute;
+    top: 42px;
+    right: 10px;
+  }
 }

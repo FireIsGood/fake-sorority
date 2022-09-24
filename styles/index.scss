@@ -125,6 +125,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 
   > * {
     grid-area: 1 / -1;
@@ -145,6 +146,10 @@ footer {
   > * + * {
     margin-top: 1em;
   }
+}
+
+#guy {
+  display: none;
 }
 
 .image-cut-in {
@@ -268,11 +273,11 @@ footer {
 }
 
 .glitch {
+  display: inline-block;
   font-family: "Courier New", Courier, monospace;
   background-color: black;
   color: white;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  padding-inline: 3px;
 }
 
 $card-offset: 8rem;
@@ -363,6 +368,29 @@ $card-offset: 8rem;
     }
     &:nth-child(5) {
       font-family: "Raleway", sans-serif;
+    }
+  }
+}
+
+// Extras for Desktop
+
+@media screen and (min-width: 600px) {
+  #guy {
+    display: block;
+    position: absolute;
+    bottom: calc(-100px + var(--lift, 0px));
+    right: calc(50% + 150px);
+    transition: bottom 0.2s ease-out;
+    cursor: grabbing;
+
+    &:hover {
+      --lift: -10px;
+    }
+
+    .eyes {
+      position: absolute;
+      top: 42px;
+      right: 10px;
     }
   }
 }

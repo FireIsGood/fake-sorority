@@ -1,16 +1,17 @@
-const glitchTexts = document.querySelectorAll(".glitch");
+const swapTexts = document.querySelectorAll(".glitch");
 
-function glitch(elem, charLen) {
+// Swap
+
+function glitchSwap(elem, charLen) {
   const charList = "&#*+%?£@§$";
   let randomText = "";
   for (let i = 0; i < charLen; i++) {
     randomText += charList[Math.floor(Math.random() * charList.length)];
   }
   elem.innerText = randomText;
-  setTimeout(glitch, 100, elem, charLen);
+  setTimeout(glitchSwap, 100, elem, charLen);
 }
 
-for (elem of glitchTexts) {
-  console.log(elem);
-  glitch(elem, elem.innerText.length);
+for (elem of swapTexts) {
+  glitchSwap(elem, elem.innerText.length);
 }
