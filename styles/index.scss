@@ -111,6 +111,16 @@ footer {
   margin-inline: auto;
 }
 
+// Animations
+@keyframes wave {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(0.5px);
+  }
+}
+
 // Specific Styles
 
 .hero {
@@ -278,6 +288,10 @@ footer {
   background-color: black;
   color: white;
   padding-inline: 3px;
+}
+
+.glitch-wave {
+  animation: var(--length, 1s) wave var(--offset, 0s) alternate infinite;
 }
 
 $card-offset: 8rem;

@@ -88,6 +88,23 @@ footer {
   margin-inline: auto;
 }
 
+@-webkit-keyframes wave {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(0.5px);
+  }
+}
+
+@keyframes wave {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(0.5px);
+  }
+}
 .hero {
   width: 100%;
   height: min(75vh, 40rem);
@@ -248,6 +265,11 @@ footer {
   background-color: black;
   color: white;
   padding-inline: 3px;
+}
+
+.glitch-wave {
+  -webkit-animation: var(--length, 1s) wave var(--offset, 0s) alternate infinite;
+          animation: var(--length, 1s) wave var(--offset, 0s) alternate infinite;
 }
 
 .card-container {
