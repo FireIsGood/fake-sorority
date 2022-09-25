@@ -4,7 +4,7 @@ const cutInText = document.querySelectorAll(".left, .right");
 
 const options = {
   root: null,
-  threshold: 0.5,
+  threshold: 0,
   rootMargin: "0px",
 };
 

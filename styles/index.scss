@@ -133,6 +133,17 @@ hr {
   }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(var(--transform-scale));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 // Specific Styles
 
 .hero {
@@ -194,11 +205,13 @@ hr {
       padding: 1rem;
       text-align: center;
       max-width: 60ch;
-      justify-self: center;
+      place-self: center;
     }
     .cut-in-image {
       position: relative;
-      height: 20rem;
+      // min-height: 10rem;
+      max-height: 20rem;
+      @include darken-overlay(0.2);
 
       &.right {
         clip-path: polygon(20% 0, 100% 0%, 100% 100%, 10% 100%);
@@ -208,26 +221,23 @@ hr {
       }
 
       img {
-        height: 20rem;
+        height: 100%;
         width: 100%;
         object-fit: cover;
       }
-      @include darken-overlay(0.2);
     }
     .js-active {
       opacity: 0;
 
       &.left {
-        transform: translateX(-100px);
+        --transform-scale: -100px;
       }
       &.right {
-        transform: translateX(100px);
+        --transform-scale: 100px;
       }
 
       &.show {
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 1.5s;
+        animation: 1s slideIn ease-out forwards;
       }
     }
   }

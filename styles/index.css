@@ -117,6 +117,26 @@ hr {
     filter: blur(0.5px);
   }
 }
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(var(--transform-scale));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(var(--transform-scale));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .hero {
   width: 100%;
   height: min(75vh, 40rem);
@@ -174,11 +194,17 @@ hr {
   padding: 1rem;
   text-align: center;
   max-width: 60ch;
-  justify-self: center;
+  place-self: center;
 }
 .image-cut-in article .cut-in-image {
   position: relative;
-  height: 20rem;
+  max-height: 20rem;
+}
+.image-cut-in article .cut-in-image::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
 }
 .image-cut-in article .cut-in-image.right {
   -webkit-clip-path: polygon(20% 0, 100% 0%, 100% 100%, 10% 100%);
@@ -189,30 +215,23 @@ hr {
           clip-path: polygon(0 0, 80% 0, 90% 100%, 0 100%);
 }
 .image-cut-in article .cut-in-image img {
-  height: 20rem;
+  height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.image-cut-in article .cut-in-image::before {
-  content: "";
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
-  inset: 0;
 }
 .image-cut-in article .js-active {
   opacity: 0;
 }
 .image-cut-in article .js-active.left {
-  transform: translateX(-100px);
+  --transform-scale: -100px;
 }
 .image-cut-in article .js-active.right {
-  transform: translateX(100px);
+  --transform-scale: 100px;
 }
 .image-cut-in article .js-active.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 1.5s;
+  -webkit-animation: 1s slideIn ease-out forwards;
+          animation: 1s slideIn ease-out forwards;
 }
 
 .news-cards {
